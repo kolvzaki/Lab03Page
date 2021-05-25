@@ -1,32 +1,57 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+ <div>
+   <el-container>
+     <el-header style="padding: 0 0">
+       <HeaderMenu/>
+     </el-header>
+
+     <el-main>
+       <router-view/>
+     </el-main>
+
+     <el-footer style="padding: 0 0">
+       <FooterInfo/>
+     </el-footer>
+
+   </el-container>
+ </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import HeaderMenu from './components/HeaderMenu/Index.vue'
+import FooterInfo from './components/FooterInfo/Index.vue'
+
+export default {
+  name:'App',
+  components:{
+    HeaderMenu,
+    FooterInfo
+  },
+  data(){
+    return{
+
+    }
+  },
 }
 
-#nav {
-  padding: 30px;
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style lang="less">
+*{
+  margin: 0;
+  padding: 0;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.el-header{
+
+}
+
+.el-footer{
+
+}
+
+.el-main{
+  height: 615px;
+  background-color: rgba(255,255,255,0.6);
 }
 </style>
